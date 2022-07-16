@@ -10,8 +10,10 @@ hide password into enviroment variable
 import os
 name = os.environ.get('VariableName')
 print('name',name)
+```
 
 
+```python
 # linux
 # export NAME=1997
 # echo $NAME
