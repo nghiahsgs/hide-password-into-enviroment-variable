@@ -27,3 +27,27 @@ import os
 name = os.environ.get('name')
 print('name',name)
 ```
+
+
+
+```python
+from email.policy import default
+import os
+from typing import Optional
+from pydantic import BaseSettings
+
+class Settings(BaseSettings):
+    name:str
+    # setx password "123456"
+    # echo %password%
+    password:str = os.environ.get('password')
+    class Config:
+        env_file = os.path.join(os.path.dirname(os.path.realpath(__file__)),'.env')
+
+settings = Settings()
+
+if __name__ =="__main__":
+    print(settings.name)
+    print(settings.password)
+    
+```
